@@ -10,28 +10,18 @@ const SearchInput = ({ onSearch }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
 
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        if (ref.current) {
-          onSearch(ref.current.value);
-        }
-      }}
-      style={{ width: "100%" }} // Ensures the form takes the full width
+    <form onSubmit={(event) => {
+      event.preventDefault();
+      if (ref.current) onSearch(ref.current.value);
+    }}
+    style={{ width: '100%' }}
     >
       <InputGroup>
         <InputLeftElement children={<BsSearch />} />
-        <Input
-          ref={ref}
-          borderRadius={20}
-          placeholder="Search games..."
-          variant="filled"
-          width="100%" // Input fills the parent width
-        />
+        <Input ref={ref} borderRadius={20} placeholder="Search games..." variant="filled" />
       </InputGroup>
     </form>
   );
 };
-
 
 export default SearchInput;
