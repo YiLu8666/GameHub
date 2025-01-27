@@ -8,11 +8,11 @@ interface Props {
   onSearch: (searchddText: string) => void;
 }
 
-const NavBar = () => {
+const NavBar = ({onSearch}:Props) => {
   return (
     <HStack padding='15px'>
       <Image src={logo} boxSize='60px' />
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
       <ColorModeSwitch />
     </HStack>
   )
